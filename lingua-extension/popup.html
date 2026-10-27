@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LinGUA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">لغ</span>
+      <span class="brand-name">LinGUA</span>
+    </div>
+    <div class="topbar-actions">
+      <button id="aboutBtn" class="icon-btn" title="About" aria-label="About">ℹ</button>
+      <button id="settingsBtn" class="icon-btn" title="Settings" aria-label="Settings">⚙</button>
+    </div>
+  </header>
+
+  <div id="modelBadge" class="model-badge">Active model: —</div>
+
+  <main id="mainView" class="card">
+    <label class="field-label" for="inputText">Paste a difficult word, phrase, or sentence</label>
+    <textarea id="inputText" rows="3" placeholder="e.g. contiguous"></textarea>
+
+    <div class="row">
+      <div class="select-wrap">
+        <label class="field-label" for="targetLang">Explain in this language</label>
+        <select id="targetLang">
+          <option value="Roman Urdu">Roman Urdu</option>
+          <option value="Urdu (اردو رسم الخط)">Urdu (اردو رسم الخط)</option>
+          <option value="Simple English">Simple English</option>
+          <option value="Hindi (हिंदी)">Hindi (हिंदी)</option>
+          <option value="Punjabi (Shahmukhi)">Punjabi (Shahmukhi)</option>
+          <option value="Arabic (العربية)">Arabic (العربية)</option>
+          <option value="__custom__">Custom language…</option>
+        </select>
+        <input id="customLang" type="text" placeholder="Type a language name" style="display:none;" />
+      </div>
+    </div>
+
+    <button id="runBtn" class="run-btn">
+      <span>Run</span>
+    </button>
+
+    <div id="statusMsg" class="status" hidden></div>
+
+    <section id="resultCard" class="result-card" hidden>
+      <p class="headword" id="headword"></p>
+
+      <div class="entry">
+        <span class="eyebrow">MEANING</span>
+        <p class="meaning-line"><mark id="meaningText"></mark></p>
+      </div>
+
+      <div class="entry">
+        <span class="eyebrow">EXPLANATION</span>
+        <p id="explanationText"></p>
+      </div>
+
+      <div class="entry">
+        <span class="eyebrow">EXAMPLE</span>
+        <p id="exampleText"></p>
+      </div>
+
+      <p class="answered-by" id="answeredBy"></p>
+    </section>
+
+    <button id="clearBtn" class="clear-btn" hidden>Clear</button>
+  </main>
+
+  <section id="settingsView" class="card" hidden>
+    <label class="field-label" for="apiKeyInput">Gemini API Key</label>
+    <input id="apiKeyInput" type="password" placeholder="AIza..." />
+    <p class="hint">Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>. Stored only in your browser (local storage) — never sent anywhere else.</p>
+
+    <label class="field-label" for="modelSelect">Gemini model</label>
+    <select id="modelSelect">
+      <option value="gemini-2.5-flash">Gemini 2.5 Flash (better quality)</option>
+      <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash-Lite (higher free daily limit)</option>
+    </select>
+
+    <label class="field-label" for="groqKeyInput">Groq API Key (backup, optional)</label>
+    <input id="groqKeyInput" type="password" placeholder="gsk_..." />
+    <p class="hint">If Gemini is overloaded (e.g. a 503 error), LinGUA automatically retries with Groq. Get a free key at <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a>. Two Groq models are tried in order, so a single model outage won't block you.</p>
+
+    <button id="saveSettingsBtn" class="run-btn">Save</button>
+    <p id="saveMsg" class="status" hidden>Saved ✓</p>
+  </section>
+
+  <section id="aboutView" class="card" hidden>
+    <p class="headword" style="font-size:22px;">LinGUA</p>
+    <p class="about-text">
+      LinGUA explains difficult words, phrases, and sentences the way a
+      knowledgeable friend would — with full context, not just a literal
+      dictionary translation. Select text on any page, or paste it into the
+      box, choose a language, and get a clear meaning, explanation, and
+      example.
+    </p>
+    <p class="about-text">Runs entirely in your browser. Your API keys never leave your device except to call the AI providers directly.</p>
+    <p class="about-text">Version 1.1.0</p>
+    <p class="about-credit">Developed by Tayyab</p>
+  </section>
+
+  <footer class="footer">
+    <span>Powered by Gemini · Groq backup</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

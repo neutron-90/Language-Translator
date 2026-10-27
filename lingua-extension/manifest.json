@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "LinGUA — AI Word & Phrase Explainer",
+  "short_name": "LinGUA",
+  "version": "1.2.0",
+  "description": "Select or paste any confusing word, phrase, or sentence and get a contextual explanation in your chosen language.",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "webRequest",
+    "cookies",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.groq.com/*",
+    "*://*.discord.com/*",
+    "*://*.instagram.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "LinGUA"
+  }
+}
