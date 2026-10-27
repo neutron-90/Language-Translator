@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "LinGUA — AI Word & Phrase Explainer",
-  "short_name": "LinGUA",
+  "name": "Language Translator — AI Word & Phrase Explainer",
+  "short_name": "Lang lator",
   "version": "1.2.0",
   "description": "Select or paste any confusing word, phrase, or sentence and get a contextual explanation in your chosen language.",
   "permissions": [
@@ -23,6 +23,6 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "LinGUA"
+    "default_title": "Language Translator"
   }
 }
